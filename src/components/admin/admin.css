@@ -1,0 +1,40 @@
+.adminBackground{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adminContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Oswald', sans-serif;
+}
+
+.adminContainer .adminTitle{
+    font-size: 45px;
+    margin-top: 20px;
+}
+.adminAdd{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.adminAdd button{
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.adminContainer .adminTable{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    height: 100vh;
+}
