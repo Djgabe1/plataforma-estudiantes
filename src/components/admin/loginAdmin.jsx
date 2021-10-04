@@ -1,8 +1,21 @@
-import React from 'react'
-
+import React, {useState} from 'react'
+import  Axios  from 'axios'
 import './loginAdmin.css'
 
-function loginAdmin({closeModal}) {
+
+
+function LoginAdmin({closeModal}) {
+    const [username, setUsername]=useState('');
+    const [password, setPassword]=useState('');
+
+    const logeoAdmin = ()=>{
+        Axios.post('http://localhost:9000/api/auth/login',{
+            username: username,
+            password: password
+        });
+    }
+
+
     return (
         <div className='loginBackground'>
             <div className="loginContainer">
@@ -13,21 +26,27 @@ function loginAdmin({closeModal}) {
                 <h1>Login</h1>
             </div>
             <div className="loginBody">
-            <form action="">
+            <form>
                         <div className="formGroup">
-                            <label for="user">User  </label>
-                            <input type="text" id='user' name='user' />
+                            <label for="username">User  </label>
+                            <input type="text" id='username' name='username' 
+                                onChange={
+                                    (e)=>setUsername(e.target.value)}
+                            />
                         </div>
                         <div className="formGroup">
-                            <label for="pass">Password </label>
-                            <input type="password" id='pass' name='pass' />
+                            <label for="password">Password </label>
+                            <input type="password" id='password' name='password' 
+                                onChange={(e)=>setPassword(e.target.value)}
+                            />
                         </div>
-                        <button>Send</button>
+                        
                     </form>
+                    <button onClick={logeoAdmin} >Send</button>
             </div>
             </div>
         </div>
     )
 }
 
-export default loginAdmin
+export default LoginAdmin

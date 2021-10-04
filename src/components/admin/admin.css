@@ -24,11 +24,14 @@
     display: flex;
     justify-content: flex-end;
 }
+.adminAdd h1{
+    align-items: start;
+}
 
-.adminAdd button{
-    background-color: transparent;
+button{
+    background-color: #119CAA;
     border: none;
-    font-size: 25px;
+    font-size: 35px;
     cursor: pointer;
 }
 

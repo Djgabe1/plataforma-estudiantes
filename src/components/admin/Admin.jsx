@@ -8,9 +8,6 @@ function Admin() {
         <div className="adminBackground">
             <div className='adminContainer'>
             <h1 className='adminTitle'> Student List</h1>
-            <div className="adminAdd">
-            <button >Add STudent</button>
-            </div>
             <div className="adminTable">
             <table class="table">
                 <thead>
@@ -21,6 +18,7 @@ function Admin() {
                     <th scope="col">Gender</th>
                     <th scope="col">Note</th>
                     <th scope="col">Auto Evaluation</th>
+                    <th scope="col"><button >Add STudent</button></th>
                     </tr>
                 </thead>
                 <tbody>
