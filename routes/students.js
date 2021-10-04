@@ -45,9 +45,10 @@ router.put('/note/:id', async (req, res) =>{
         const student = await Students.findById(req.params.id);
         if (student.id === req.body.id) {
             console.log(req.body.note);
-            const note = Math.round(req.body.note);
+            const note = req.body.note;
             console.log(note);
             function between(note, min, max) {
+                
                 return note > min && note <= max;
             }
             if (between(note,0,5)) {
@@ -75,9 +76,9 @@ router.post('/autoevaluation', async (req, res) =>{
         if (!student) {
             res.status(401).json({message: 'Document not found'})
         } else {
-            const autoevaluation = Math.round(req.body.autoevaluation);
+            const autoevaluation = req.body.autoevaluation;
             function between(autoevaluation, min, max) {
-                return autoevaluation > min && autoevaluation <= max;
+                return autoevaluation >= min && autoevaluation <= max;
             }
             if (between(autoevaluation,0,5)) {
                 await student.updateOne({$set: req.body});
@@ -86,16 +87,7 @@ router.post('/autoevaluation', async (req, res) =>{
                 res.json({message: 'la nota no esta permitida'})
             }
         }
-        /*            const autoevaluation = Math.round(req.body.autoevaluation);
-            function between(autoevaluation, min, max) {
-                return autoevaluation > min && autoevaluation <= max;
-            }
-            if (between(autoevaluation,0,5)) {
-                await student.updateOne({$set: req.body});
-                res.status(200).json('data saved');
-            } else {
-                res.json({message: 'la nota no esta permitida'})
-            } */
+        
     } catch (error) {
         res.status(500).json(error);
     }

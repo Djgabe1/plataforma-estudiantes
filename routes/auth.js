@@ -3,6 +3,7 @@ const Admin = require('../models/Admin');
 const bcrypt = require('bcrypt');
 
 
+
 //Registro admin
 router.post('/register', async (req, res) =>{
 		try{
@@ -34,11 +35,12 @@ router.post('/login', async (req, res)=>{
 
 		const validpassword = await bcrypt.compare(req.body.password, admin.password);
 		!validpassword	&& res.status(404).json('wrong password ');
-
-		res.status(200).json(admin);
+		res.status(200).json(admin); 
+		
 
 	} catch (error) {
-		res.status(500).json(error)
+		res.status(500).json(error);
+		console.log('datos incorrectos');
 	}
 })
 
